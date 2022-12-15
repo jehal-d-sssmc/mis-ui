@@ -1,23 +1,32 @@
-<app name="{{ name }}">
-  
-</app>
+<app name="{{ name }}"> </app>
 <!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
-<nav>
-<ul>
-  <li>
-    <a routerLink="/" routerLinkActive="active" ariaCurrentWhenActive="page"
-      >First Component</a
-    >
-  </li>
-  <li>
-    <a
-      routerLink="/home"
-      routerLinkActive="active"
-      ariaCurrentWhenActive="page"
-      >Second Component</a
-    >
-  </li>
-</ul>
-</nav>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item active">
+      <a class="nav-link" href="#"
+        >Home
+        <span class="sr-only" routerLink="/">(current)</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/expenses">Report</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Dashboard</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">About</a>
+    </li>
+    <li class="nav-item">
+      <div *ngIf="isUserLoggedIn; else isLogOut">
+        <a class="nav-link" routerLink="/logout">Logout</a>
+      </div>
+
+      <ng-template #isLogOut>
+        <a class="nav-link" routerLink="/login">Login</a>
+      </ng-template>
+    </li>
+  </ul>
+</div>
 <!-- The routed views render in the <router-outlet>-->
 <router-outlet></router-outlet>
