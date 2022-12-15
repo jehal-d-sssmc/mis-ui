@@ -1,6 +1,6 @@
-import { version } from './../../package.json';
+import { version, appname } from './../../package.json';
 
 export const environment = {
   VERSION: version,
-  NAME: name,
+  NAME: appname,
 };
